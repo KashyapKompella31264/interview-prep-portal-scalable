@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  cpp_executor:
+    build: 
+      context: ./cpp
+      dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
+    volumes:
+      - cpp_vol:/app
+
+  java_executor:
+    build:
+      context: ./java
+      dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
+    volumes:
+      - java_vol:/app
+
+  python_executor:
+    build:
+      context: ./python
+      dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
+    volumes:
+      - python_vol:/app
+
+volumes:
+  cpp_vol:
+  java_vol:
+  python_vol:
